@@ -1,0 +1,176 @@
+{
+ "source": "/home/yagiz/Documents/gimbal-for-fun/cad/out",
+ "frame": "FLU about O (axis intersection)",
+ "meshes": [
+  {
+   "file": "meshes/cad/base_0.stl",
+   "body": "base",
+   "rgb": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "triangles": 668
+  },
+  {
+   "file": "meshes/cad/base_1.stl",
+   "body": "base",
+   "rgb": [
+    0.1,
+    0.45,
+    0.15
+   ],
+   "triangles": 368
+  },
+  {
+   "file": "meshes/cad/base_2.stl",
+   "body": "base",
+   "rgb": [
+    0.24,
+    0.25,
+    0.27
+   ],
+   "triangles": 1324
+  },
+  {
+   "file": "meshes/cad/base_3.stl",
+   "body": "base",
+   "rgb": [
+    0.5,
+    0.51,
+    0.53
+   ],
+   "triangles": 184
+  },
+  {
+   "file": "meshes/cad/base_4.stl",
+   "body": "base",
+   "rgb": [
+    0.55,
+    0.42,
+    0.25
+   ],
+   "triangles": 336
+  },
+  {
+   "file": "meshes/cad/base_5.stl",
+   "body": "base",
+   "rgb": [
+    0.65,
+    0.65,
+    0.68
+   ],
+   "triangles": 836
+  },
+  {
+   "file": "meshes/cad/yaw_body_0.stl",
+   "body": "yaw_body",
+   "rgb": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "triangles": 12
+  },
+  {
+   "file": "meshes/cad/yaw_body_1.stl",
+   "body": "yaw_body",
+   "rgb": [
+    0.1,
+    0.45,
+    0.15
+   ],
+   "triangles": 184
+  },
+  {
+   "file": "meshes/cad/yaw_body_2.stl",
+   "body": "yaw_body",
+   "rgb": [
+    0.24,
+    0.25,
+    0.27
+   ],
+   "triangles": 2468
+  },
+  {
+   "file": "meshes/cad/yaw_body_3.stl",
+   "body": "yaw_body",
+   "rgb": [
+    0.55,
+    0.42,
+    0.25
+   ],
+   "triangles": 1008
+  },
+  {
+   "file": "meshes/cad/yaw_body_4.stl",
+   "body": "yaw_body",
+   "rgb": [
+    0.65,
+    0.65,
+    0.68
+   ],
+   "triangles": 672
+  },
+  {
+   "file": "meshes/cad/pitch_body_0.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.02,
+    0.02,
+    0.03
+   ],
+   "triangles": 328
+  },
+  {
+   "file": "meshes/cad/pitch_body_1.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "triangles": 12
+  },
+  {
+   "file": "meshes/cad/pitch_body_2.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.1,
+    0.3,
+    0.55
+   ],
+   "triangles": 24
+  },
+  {
+   "file": "meshes/cad/pitch_body_3.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.1,
+    0.45,
+    0.15
+   ],
+   "triangles": 24
+  },
+  {
+   "file": "meshes/cad/pitch_body_4.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.24,
+    0.25,
+    0.27
+   ],
+   "triangles": 3888
+  },
+  {
+   "file": "meshes/cad/pitch_body_5.stl",
+   "body": "pitch_body",
+   "rgb": [
+    0.55,
+    0.42,
+    0.25
+   ],
+   "triangles": 672
+  }
+ ]
+}

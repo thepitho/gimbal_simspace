@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- AKGOZ GIMBAL - 2 eksen (azimuth + elevation), roll yok.
+     make_akgoz_urdf.py tarafindan uretildi; elle duzenlemeyin.
+     Geometri ve kutle: gimbal-for-fun cad/turret.py (cad_ref/massprops.json, meshes/cad). -->
+<robot name="akgoz_gimbal">
+  <link name="ground">
+    <inertial>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <mass value="1" />
+      <inertia ixx="0.01003333333" iyy="0.01003333333" izz="0.02" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <geometry><cylinder radius="0.2" length="0.02" /></geometry>
+      <material name="ground_material"><color rgba="0.25 0.27 0.3 1" /></material>
+    </visual>
+  </link>
+  <link name="yaw_carrier">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.001" />
+      <inertia ixx="1.6667e-08" iyy="1.6667e-08" izz="1.6667e-08" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+  <joint name="base_yaw" type="continuous">
+    <parent link="ground" />
+    <child link="yaw_carrier" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="moving_base">
+    <inertial>
+      <origin xyz="-0.00209364457 -0.0003858756595 -0.04106139005" rpy="0 0 0" />
+      <mass value="0.6494012481" />
+      <inertia ixx="0.001061405386" iyy="0.001094943747" izz="0.001354089616" ixy="5.125241907e-07" ixz="-3.337185468e-06" iyz="-2.298161802e-07" />
+    </inertial>
+  </link>
+  <joint name="base_pitch" type="continuous">
+    <parent link="yaw_carrier" />
+    <child link="moving_base" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="azimuth_body">
+    <inertial>
+      <origin xyz="9.212909614e-19 -0.006817999421 0.04823722791" rpy="0 0 0" />
+      <mass value="0.6424421311" />
+      <inertia ixx="0.005843944708" iyy="0.00205898437" izz="0.004161459031" ixy="-1.70053407e-19" ixz="1.420739885e-21" iyz="-0.0004493716263" />
+    </inertial>
+  </link>
+  <joint name="azimuth" type="continuous">
+    <parent link="moving_base" />
+    <child link="azimuth_body" />
+    <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="camera">
+    <inertial>
+      <origin xyz="0.0005002810195 0.002894522521 -0.0003000003313" rpy="0 0 0" />
+      <mass value="1.512957393" />
+      <inertia ixx="0.004837496488" iyy="0.003896641848" izz="0.005696073786" ixy="0.0002616026773" ixz="-2.270824004e-07" iyz="-1.313786804e-06" />
+    </inertial>
+  </link>
+  <joint name="elevation" type="continuous">
+    <parent link="azimuth_body" />
+    <child link="camera" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+  </joint>
+  <link name="base_0_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_0.stl" scale="1 1 1" /></geometry>
+      <material name="base_0_vis_material"><color rgba="0.05 0.05 0.05 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_0_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_0_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_1_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_1.stl" scale="1 1 1" /></geometry>
+      <material name="base_1_vis_material"><color rgba="0.1 0.45 0.15 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_1_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_1_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_2_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_2.stl" scale="1 1 1" /></geometry>
+      <material name="base_2_vis_material"><color rgba="0.24 0.25 0.27 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_2_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_2_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_3_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_3.stl" scale="1 1 1" /></geometry>
+      <material name="base_3_vis_material"><color rgba="0.5 0.51 0.53 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_3_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_3_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_4_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_4.stl" scale="1 1 1" /></geometry>
+      <material name="base_4_vis_material"><color rgba="0.55 0.42 0.25 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_4_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_4_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_5_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.186047" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/base_5.stl" scale="1 1 1" /></geometry>
+      <material name="base_5_vis_material"><color rgba="0.65 0.65 0.68 1" /></material>
+    </visual>
+  </link>
+  <joint name="base_5_vis_mount" type="fixed">
+    <parent link="moving_base" />
+    <child link="base_5_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="yaw_body_0_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/yaw_body_0.stl" scale="1 1 1" /></geometry>
+      <material name="yaw_body_0_vis_material"><color rgba="0.05 0.05 0.05 1" /></material>
+    </visual>
+  </link>
+  <joint name="yaw_body_0_vis_mount" type="fixed">
+    <parent link="azimuth_body" />
+    <child link="yaw_body_0_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="yaw_body_1_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/yaw_body_1.stl" scale="1 1 1" /></geometry>
+      <material name="yaw_body_1_vis_material"><color rgba="0.1 0.45 0.15 1" /></material>
+    </visual>
+  </link>
+  <joint name="yaw_body_1_vis_mount" type="fixed">
+    <parent link="azimuth_body" />
+    <child link="yaw_body_1_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="yaw_body_2_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/yaw_body_2.stl" scale="1 1 1" /></geometry>
+      <material name="yaw_body_2_vis_material"><color rgba="0.24 0.25 0.27 1" /></material>
+    </visual>
+  </link>
+  <joint name="yaw_body_2_vis_mount" type="fixed">
+    <parent link="azimuth_body" />
+    <child link="yaw_body_2_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="yaw_body_3_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/yaw_body_3.stl" scale="1 1 1" /></geometry>
+      <material name="yaw_body_3_vis_material"><color rgba="0.55 0.42 0.25 1" /></material>
+    </visual>
+  </link>
+  <joint name="yaw_body_3_vis_mount" type="fixed">
+    <parent link="azimuth_body" />
+    <child link="yaw_body_3_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="yaw_body_4_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/yaw_body_4.stl" scale="1 1 1" /></geometry>
+      <material name="yaw_body_4_vis_material"><color rgba="0.65 0.65 0.68 1" /></material>
+    </visual>
+  </link>
+  <joint name="yaw_body_4_vis_mount" type="fixed">
+    <parent link="azimuth_body" />
+    <child link="yaw_body_4_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_0_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_0.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_0_vis_material"><color rgba="0.02 0.02 0.03 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_0_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_0_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_1_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_1.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_1_vis_material"><color rgba="0.05 0.05 0.05 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_1_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_1_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_2_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_2.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_2_vis_material"><color rgba="0.1 0.3 0.55 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_2_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_2_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_3_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_3.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_3_vis_material"><color rgba="0.1 0.45 0.15 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_3_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_3_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_4_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_4.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_4_vis_material"><color rgba="0.24 0.25 0.27 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_4_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_4_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="pitch_body_5_vis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-06" />
+      <inertia ixx="1e-12" iyy="1e-12" izz="1e-12" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><mesh filename="meshes/cad/pitch_body_5.stl" scale="1 1 1" /></geometry>
+      <material name="pitch_body_5_vis_material"><color rgba="0.55 0.42 0.25 1" /></material>
+    </visual>
+  </link>
+  <joint name="pitch_body_5_vis_mount" type="fixed">
+    <parent link="camera" />
+    <child link="pitch_body_5_vis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+</robot>

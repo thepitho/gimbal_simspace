@@ -1,0 +1,1411 @@
+{
+ "frame": "per body: own joint frame at zero joint angles (x fwd, y right, z down); origin O = yaw/pitch axis intersection; tensor convention, off-diagonals = -products",
+ "tool": "build123d + OCCT BRepGProp volume properties; bought-in parts as uniform-density solids scaled to datasheet mass",
+ "geometry_mm": {
+  "r_in": 93.347,
+  "r_out": 94.547,
+  "y_flat": 68.2,
+  "x_face": 68.803,
+  "x_front": 51.352,
+  "gap": 13.451,
+  "r_win_ir": 34.348,
+  "r_win_eo": 15.043,
+  "y_ir": 26.5,
+  "y_eo": -40.0,
+  "y_arm_out": 99.0,
+  "z_mount": -186.047,
+  "z_iso_top": -183.547,
+  "z_iso_bot": -165.547,
+  "y_o": 2.694
+ },
+ "bodies": {
+  "pitch_body": {
+   "mass_kg": 1.5129573932820755,
+   "com_m": [
+    2.8101947607619756e-07,
+    -0.0028945225207352375,
+    3.3128629556215074e-10
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0048503086060274645,
+     -0.0002594118020595158,
+     1.0989458185190147e-11
+    ],
+    [
+     -0.0002594118020595158,
+     0.003897156678667417,
+     1.4215731317124636e-12
+    ],
+    [
+     1.0989458185190147e-11,
+     1.4215731317124636e-12,
+     0.0057091284023142366
+    ]
+   ],
+   "inertia_diag": [
+    0.0048503086060274645,
+    0.003897156678667417,
+    0.0057091284023142366
+   ],
+   "inertia_offdiag_xy_xz_yz": [
+    -0.0002594118020595158,
+    1.0989458185190147e-11,
+    1.4215731317124636e-12
+   ]
+  },
+  "yaw_body": {
+   "mass_kg": 0.6424421311084204,
+   "com_m": [
+    9.212909614164563e-19,
+    0.00681799942086659,
+    -0.048237227907163595
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.007368662429064715,
+     1.6601799591426076e-19,
+     2.7129723823737186e-20
+    ],
+    [
+     1.6601799591426076e-19,
+     0.0035538380943475625,
+     -0.00023808436401529355
+    ],
+    [
+     2.7129723823737186e-20,
+     -0.00023808436401529355,
+     0.004191323028178253
+    ]
+   ],
+   "inertia_diag": [
+    0.007368662429064715,
+    0.0035538380943475625,
+    0.004191323028178253
+   ],
+   "inertia_offdiag_xy_xz_yz": [
+    1.6601799591426076e-19,
+    2.7129723823737186e-20,
+    -0.00023808436401529355
+   ]
+  },
+  "base": {
+   "mass_kg": 0.64940124810702,
+   "com_m": [
+    -0.002093644569827317,
+    0.00038587565949855114,
+    -0.14498560994505907
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.014712453430594526,
+     1.2118297187007924e-08,
+     -0.00019378748211851726
+    ],
+    [
+     1.2118297187007924e-08,
+     0.014748741647307927,
+     3.610185740216005e-05
+    ],
+    [
+     -0.00019378748211851726,
+     3.610185740216005e-05,
+     0.0013570328635759033
+    ]
+   ],
+   "inertia_diag": [
+    0.014712453430594526,
+    0.014748741647307927,
+    0.0013570328635759033
+   ],
+   "inertia_offdiag_xy_xz_yz": [
+    1.2118297187007924e-08,
+    -0.00019378748211851726,
+    3.610185740216005e-05
+   ]
+  }
+ },
+ "total_mass_kg": 2.804800772497516,
+ "mesh_signed_volume_m3": {
+  "pitch_body": 0.0011586122022860322,
+  "yaw_body": 0.00019398440362325214,
+  "base": 0.00025930485249110925
+ },
+ "items": [
+  {
+   "name": "ball_shell",
+   "body": "pitch_body",
+   "mass_kg": 0.37226,
+   "com_m": [
+    -0.00278,
+    -0.00376,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00197651739969202,
+     2.4122874213687657e-05,
+     1.0989459562062984e-11
+    ],
+    [
+     2.4122874213687657e-05,
+     0.001972001807384134,
+     1.4071893827014165e-12
+    ],
+    [
+     1.0989459562062984e-11,
+     1.4071893827014165e-12,
+     0.0018383672021890442
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "window_ir_ge",
+   "body": "pitch_body",
+   "mass_kg": 0.08849,
+   "com_m": [
+    0.0668,
+    0.02381,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00010860500376437313,
+     -0.0001407260198487005,
+     1.4985529210393942e-20
+    ],
+    [
+     -0.0001407260198487005,
+     0.00042424798829004213,
+     -3.49075272174295e-21
+    ],
+    [
+     1.4985529210393942e-20,
+     -3.49075272174295e-21,
+     0.0004743966843347325
+    ]
+   ],
+   "material": "ge",
+   "density_kg_m3": 5330.0,
+   "source": "cad:cad/turret.py (thickness placeholder); rho datasheet:https://www.crystran.com/optical-materials/germanium-ge"
+  },
+  {
+   "name": "window_eo_sapphire",
+   "body": "pitch_body",
+   "mass_kg": 0.01087,
+   "com_m": [
+    0.0673,
+    -0.04269,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     2.1388403000427452e-05,
+     3.1228354192021314e-05,
+     -1.8636593616029406e-21
+    ],
+    [
+     3.1228354192021314e-05,
+     5.002532106551813e-05,
+     1.3532708467823274e-21
+    ],
+    [
+     -1.8636593616029406e-21,
+     1.3532708467823274e-21,
+     6.983538949891177e-05
+    ]
+   ],
+   "material": "sapphire",
+   "density_kg_m3": 3970.0,
+   "source": "cad:cad/turret.py (thickness placeholder); rho datasheet:https://www.crystran.com/optical-materials/sapphire-al2o3"
+  },
+  {
+   "name": "eo_fcb_ev9520l",
+   "body": "pitch_body",
+   "mass_kg": 0.239,
+   "com_m": [
+    0.0065,
+    -0.04269,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0005571424786097281,
+     6.634242223147902e-05,
+     8.929949559905816e-22
+    ],
+    [
+     6.634242223147902e-05,
+     0.00024205414750883009,
+     -4.718054103236309e-21
+    ],
+    [
+     8.929949559905816e-22,
+     -4.718054103236309e-21,
+     0.0006557966261185581
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 888.1,
+   "source": "datasheet:sony-ev9520l-cat (docs/research/eo-cameras.md Z1); CoM at box centroid = placeholder"
+  },
+  {
+   "name": "ir_boson_plus_cz_14_75",
+   "body": "pitch_body",
+   "mass_kg": 0.39,
+   "com_m": [
+    0.00085,
+    0.02381,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0006064016680992422,
+     -7.906828638702052e-06,
+     -2.519196972240355e-22
+    ],
+    [
+     -7.906828638702052e-06,
+     0.0005245078652683052,
+     2.8648293715434983e-22
+    ],
+    [
+     -2.519196972240355e-22,
+     2.8648293715434983e-22,
+     0.0007455245333675472
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 651.3,
+   "source": "datasheet:flir-bosonplus-cz-page (docs/research/ir-cores.md U2); CoM at box centroid = placeholder"
+  },
+  {
+   "name": "imu_stim210",
+   "body": "pitch_body",
+   "mass_kg": 0.055,
+   "com_m": [
+    -0.06165,
+    -0.01619,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     3.067661723781724e-05,
+     -5.4909498116352465e-05,
+     1.3862427846749122e-21
+    ],
+    [
+     -5.4909498116352465e-05,
+     0.00021783317993159367,
+     5.149331601971427e-22
+    ],
+    [
+     1.3862427846749122e-21,
+     5.149331601971427e-22,
+     0.0002345672971694109
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1567.0,
+   "source": "placeholder (STIM210 mass/size not on fetched Safran pages; proxy STIM300 '<55 g', '<35 cm3', imu-04/05)"
+  },
+  {
+   "name": "video_encoder_board",
+   "body": "pitch_body",
+   "mass_kg": 0.06,
+   "com_m": [
+    -0.04535,
+    -0.04269,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00013199340467189827,
+     -0.00011616709312998677,
+     -1.7763568394002506e-24
+    ],
+    [
+     -0.00011616709312998677,
+     0.00013638840972175618,
+     -4.0116058623122465e-23
+    ],
+    [
+     -1.7763568394002506e-24,
+     -4.0116058623122465e-23,
+     0.00024338181439365444
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 2666.7,
+   "source": "placeholder"
+  },
+  {
+   "name": "sensor_bracket",
+   "body": "pitch_body",
+   "mass_kg": 0.10743,
+   "com_m": [
+    0.0023,
+    -0.01718,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0002890227002916064,
+     8.214993442654766e-06,
+     1.5716068446636206e-21
+    ],
+    [
+     8.214993442654766e-06,
+     0.00020072330077236788,
+     9.428902120178762e-21
+    ],
+    [
+     1.5716068446636206e-21,
+     9.428902120178762e-21,
+     0.00023099560686397425
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_shaft_p",
+   "body": "pitch_body",
+   "mass_kg": 0.02613,
+   "com_m": [
+    0.0,
+    0.08031,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00017322227446860328,
+     -1.4247060741216017e-20,
+     4.311214735648548e-22
+    ],
+    [
+     -1.4247060741216017e-20,
+     5.019358710955957e-06,
+     2.1526129211982647e-21
+    ],
+    [
+     4.311214735648548e-22,
+     2.1526129211982647e-21,
+     0.00017322227446860323
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_shaft_n",
+   "body": "pitch_body",
+   "mass_kg": 0.03379,
+   "com_m": [
+    -0.0,
+    -0.09068,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00028597391596426306,
+     -1.0124447002625071e-20,
+     4.0333353804451504e-23
+    ],
+    [
+     -1.0124447002625071e-20,
+     5.927968920860045e-06,
+     -1.536564315397806e-21
+    ],
+    [
+     4.0333353804451504e-23,
+     -1.536564315397806e-21,
+     0.00028597391596426296
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_motor_rotor",
+   "body": "pitch_body",
+   "mass_kg": 0.07,
+   "com_m": [
+    0.0,
+    0.07816,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0004408935835210457,
+     -1.316374142095034e-21,
+     2.0542634182138197e-21
+    ],
+    [
+     -1.316374142095034e-21,
+     2.305126337500014e-05,
+     1.108955960899303e-20
+    ],
+    [
+     2.0542634182138197e-21,
+     1.108955960899303e-20,
+     0.0004408935835210454
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 7161.2,
+   "source": "datasheet:mot-08 Omni+ DS-2001 REV060223, OPN-060-013 (no Halls), weights 'estimated'"
+  },
+  {
+   "name": "pitch_encoder_ring",
+   "body": "pitch_body",
+   "mass_kg": 0.015,
+   "com_m": [
+    0.0,
+    -0.10569,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00017041128046114414,
+     7.483359483820122e-21,
+     3.5122430489501453e-22
+    ],
+    [
+     7.483359483820122e-21,
+     5.673750000000034e-06,
+     -6.744926872884051e-22
+    ],
+    [
+     3.5122430489501453e-22,
+     -6.744926872884051e-22,
+     0.00017041128046114411
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5376.9,
+   "source": "datasheet:enc-03 RLS MBD01 Issue 15, MRA049BC025DSE00"
+  },
+  {
+   "name": "pitch_harness",
+   "body": "pitch_body",
+   "mass_kg": 0.03,
+   "com_m": [
+    -0.05435,
+    -0.04269,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     5.7934202335949134e-05,
+     -6.961101860687473e-05,
+     -2.7755575615634296e-25
+    ],
+    [
+     -6.961101860687473e-05,
+     8.970231771686878e-05,
+     -4.468647674116282e-24
+    ],
+    [
+     -2.7755575615634296e-25,
+     -4.468647674116282e-24,
+     0.0001456365200528179
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 8333.3,
+   "source": "placeholder"
+  },
+  {
+   "name": "pitch_motor_stator",
+   "body": "yaw_body",
+   "mass_kg": 0.12,
+   "com_m": [
+    -0.0,
+    0.07816,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0007780114210003645,
+     2.6201767758344145e-20,
+     6.514428597334801e-22
+    ],
+    [
+     2.6201767758344145e-20,
+     8.00833500000004e-05,
+     6.663258796447937e-21
+    ],
+    [
+     6.514428597334801e-22,
+     6.663258796447937e-21,
+     0.0007780114210003636
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 3681.4,
+   "source": "datasheet:mot-08 Omni+ DS-2001 REV060223, OPN-060-013 (no Halls), weights 'estimated'"
+  },
+  {
+   "name": "pitch_motor_housing",
+   "body": "yaw_body",
+   "mass_kg": 0.03896,
+   "com_m": [
+    0.0,
+    0.07916,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0002653757232631118,
+     5.029141902923584e-21,
+     -5.219280866609411e-21
+    ],
+    [
+     5.029141902923584e-21,
+     3.874239833656801e-05,
+     3.333090637365089e-22
+    ],
+    [
+     -5.219280866609411e-21,
+     3.333090637365089e-22,
+     0.0002653757232631115
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "yoke_arm_p",
+   "body": "yaw_body",
+   "mass_kg": 0.07832,
+   "com_m": [
+    0.0,
+    0.09437,
+    -0.03609
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0009177527416622497,
+     4.526209238936152e-21,
+     -4.7148205339908655e-22
+    ],
+    [
+     4.526209238936152e-21,
+     0.0002520326779177069,
+     0.00026517190390771433
+    ],
+    [
+     -4.7148205339908655e-22,
+     0.00026517190390771433,
+     0.0007299193255954687
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_bearing_p",
+   "body": "yaw_body",
+   "mass_kg": 0.025,
+   "com_m": [
+    -0.0,
+    0.09581,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00023373269124281551,
+     7.745860950852022e-21,
+     2.483169460765439e-22
+    ],
+    [
+     7.745860950852022e-21,
+     8.32500000000005e-06,
+     2.3923355389912427e-21
+    ],
+    [
+     2.483169460765439e-22,
+     2.3923355389912427e-21,
+     0.00023373269124281543
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5263.1,
+   "source": "placeholder (61806 30x42x7; retailer pages 0.022-0.027 kg, unverified)"
+  },
+  {
+   "name": "yoke_arm_n",
+   "body": "yaw_body",
+   "mass_kg": 0.07832,
+   "com_m": [
+    0.0,
+    -0.09976,
+    -0.03609
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0009996853132709178,
+     -5.915867292460538e-21,
+     -2.278829924762249e-21
+    ],
+    [
+     -5.915867292460538e-21,
+     0.0002520326779177069,
+     -0.00028040474832145265
+    ],
+    [
+     -2.278829924762249e-21,
+     -0.00028040474832145265,
+     0.0008118518972041371
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_bearing_n",
+   "body": "yaw_body",
+   "mass_kg": 0.025,
+   "com_m": [
+    -0.0,
+    -0.10119,
+    -0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00026027194906700566,
+     -1.0635164763821086e-20,
+     2.483169460765439e-22
+    ],
+    [
+     -1.0635164763821086e-20,
+     8.32500000000005e-06,
+     -3.132638611278324e-21
+    ],
+    [
+     2.483169460765439e-22,
+     -3.132638611278324e-21,
+     0.00026027194906700556
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5263.1,
+   "source": "placeholder (61806 30x42x7; retailer pages 0.022-0.027 kg, unverified)"
+  },
+  {
+   "name": "yoke_bridge",
+   "body": "yaw_body",
+   "mass_kg": 0.07365,
+   "com_m": [
+    0.0,
+    -0.00287,
+    -0.09955
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0009404717799079547,
+     -1.774520286281479e-22,
+     6.482878234237433e-21
+    ],
+    [
+     -1.774520286281479e-22,
+     0.0007566236511320226,
+     -2.1064810316168904e-05
+    ],
+    [
+     6.482878234237433e-21,
+     -2.1064810316168904e-05,
+     0.0002371839284235018
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_encoder_head",
+   "body": "yaw_body",
+   "mass_kg": 0.0045,
+   "com_m": [
+    -0.0,
+    -0.10169,
+    -0.01516
+   ],
+   "inertia_O_kgm2": [
+    [
+     4.7847981616092384e-05,
+     -9.494910345289742e-22,
+     -9.736727553255349e-24
+    ],
+    [
+     -9.494910345289742e-22,
+     2.608312499999999e-06,
+     -6.936645045403376e-06
+    ],
+    [
+     -9.736727553255349e-24,
+     -6.936645045403376e-06,
+     4.784798161609237e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1232.2,
+   "source": "datasheet:enc-03 MB049 shape D 4.5 g (thickness placeholder)"
+  },
+  {
+   "name": "pitch_encoder_cover",
+   "body": "yaw_body",
+   "mass_kg": 0.02535,
+   "com_m": [
+    0.0,
+    -0.11293,
+    0.0
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0003335553458396989,
+     1.356541355114795e-19,
+     -1.7933673906823855e-21
+    ],
+    [
+     1.356541355114795e-19,
+     1.9500530813441456e-05,
+     1.725174419605043e-20
+    ],
+    [
+     -1.7933673906823855e-21,
+     1.725174419605043e-20,
+     0.00033355534583969865
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "pitch_driver_odrive_micro",
+   "body": "yaw_body",
+   "mass_kg": 0.0068,
+   "com_m": [
+    0.0,
+    -0.10519,
+    -0.04877
+   ],
+   "inertia_O_kgm2": [
+    [
+     9.203195797002789e-05,
+     1.1153714064659086e-22,
+     5.599279953931702e-23
+    ],
+    [
+     1.1153714064659086e-22,
+     1.733668234573441e-05,
+     -3.4888669096861415e-05
+    ],
+    [
+     5.599279953931702e-23,
+     -3.4888669096861415e-05,
+     7.585580895762681e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 948.7,
+   "source": "datasheet:drv-05 ODrive Micro 6.8 g bare board"
+  },
+  {
+   "name": "yaw_harness",
+   "body": "yaw_body",
+   "mass_kg": 0.03,
+   "com_m": [
+    0.0,
+    -0.11269,
+    -0.04877
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0004763142518185544,
+     2.8370103919758423e-22,
+     1.231306723248338e-22
+    ],
+    [
+     2.8370103919758423e-22,
+     9.531381772000635e-05,
+     -0.00016489461602215032
+    ],
+    [
+     1.231306723248338e-22,
+     -0.00016489461602215032,
+     0.00038132043409854806
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 4805.4,
+   "source": "placeholder"
+  },
+  {
+   "name": "yaw_shaft",
+   "body": "yaw_body",
+   "mass_kg": 0.03654,
+   "com_m": [
+    0.0,
+    0.0,
+    -0.12394
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0005708572313049858,
+     2.911993025070103e-22,
+     2.805318217724563e-20
+    ],
+    [
+     2.911993025070103e-22,
+     0.0005708572313049855,
+     -5.029141902923584e-21
+    ],
+    [
+     2.805318217724563e-20,
+     -5.029141902923584e-21,
+     6.9742317533399376e-06
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "yaw_motor_rotor",
+   "body": "yaw_body",
+   "mass_kg": 0.07,
+   "com_m": [
+    -0.0,
+    -0.0,
+    -0.1242
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0010930515683590133,
+     3.574953962474896e-21,
+     -6.669367666244937e-21
+    ],
+    [
+     3.574953962474896e-21,
+     0.0010930515683590133,
+     -7.195496518294152e-21
+    ],
+    [
+     -6.669367666244937e-21,
+     -7.195496518294152e-21,
+     2.3051263375000144e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 7161.2,
+   "source": "datasheet:mot-08 Omni+ DS-2001 REV060223, OPN-060-013 (no Halls), weights 'estimated'"
+  },
+  {
+   "name": "yaw_encoder_ring",
+   "body": "yaw_body",
+   "mass_kg": 0.015,
+   "com_m": [
+    0.0,
+    0.0,
+    -0.14635
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00032410274365786244,
+     3.716846449588507e-22,
+     7.041919986634902e-21
+    ],
+    [
+     3.716846449588507e-22,
+     0.0003241027436578624,
+     6.978344013632172e-22
+    ],
+    [
+     7.041919986634902e-21,
+     6.978344013632172e-22,
+     5.673750000000037e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5376.9,
+   "source": "datasheet:enc-03 RLS MBD01 Issue 15, MRA049BC025DSE00"
+  },
+  {
+   "name": "isolator_+1+1",
+   "body": "base",
+   "mass_kg": 0.01,
+   "com_m": [
+    0.06,
+    0.06,
+    -0.17455
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0003413391429931576,
+     -3.6e-05,
+     0.00010472809101551348
+    ],
+    [
+     -3.6e-05,
+     0.0003413391429931576,
+     0.00010472809101551348
+    ],
+    [
+     0.00010472809101551348,
+     0.00010472809101551348,
+     7.280645000000003e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1096.4,
+   "source": "placeholder mass; envelope LORD 100APL-1B (Herber copy of LORD catalog: A 1.00 in, G+I 0.71 in)"
+  },
+  {
+   "name": "isolator_+1-1",
+   "body": "base",
+   "mass_kg": 0.01,
+   "com_m": [
+    0.06,
+    -0.06,
+    -0.17455
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0003413391429931576,
+     3.6e-05,
+     0.00010472809101551348
+    ],
+    [
+     3.6e-05,
+     0.0003413391429931576,
+     -0.00010472809101551348
+    ],
+    [
+     0.00010472809101551348,
+     -0.00010472809101551348,
+     7.280645000000003e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1096.4,
+   "source": "placeholder mass; envelope LORD 100APL-1B (Herber copy of LORD catalog: A 1.00 in, G+I 0.71 in)"
+  },
+  {
+   "name": "isolator_-1+1",
+   "body": "base",
+   "mass_kg": 0.01,
+   "com_m": [
+    -0.06,
+    0.06,
+    -0.17455
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0003413391429931576,
+     3.6e-05,
+     -0.00010472809101551348
+    ],
+    [
+     3.6e-05,
+     0.0003413391429931576,
+     0.00010472809101551348
+    ],
+    [
+     -0.00010472809101551348,
+     0.00010472809101551348,
+     7.280645000000003e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1096.4,
+   "source": "placeholder mass; envelope LORD 100APL-1B (Herber copy of LORD catalog: A 1.00 in, G+I 0.71 in)"
+  },
+  {
+   "name": "isolator_-1-1",
+   "body": "base",
+   "mass_kg": 0.01,
+   "com_m": [
+    -0.06,
+    -0.06,
+    -0.17455
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0003413391429931576,
+     -3.6e-05,
+     -0.00010472809101551348
+    ],
+    [
+     -3.6e-05,
+     0.0003413391429931576,
+     -0.00010472809101551348
+    ],
+    [
+     -0.00010472809101551348,
+     -0.00010472809101551348,
+     7.280645000000003e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1096.4,
+   "source": "placeholder mass; envelope LORD 100APL-1B (Herber copy of LORD catalog: A 1.00 in, G+I 0.71 in)"
+  },
+  {
+   "name": "base_housing",
+   "body": "base",
+   "mass_kg": 0.21037,
+   "com_m": [
+    -0.0,
+    0.0,
+    -0.13747
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0042848323497078475,
+     -4.848777915347272e-20,
+     -9.555369615554811e-20
+    ],
+    [
+     -4.848777915347272e-20,
+     0.004284832349707843,
+     3.20161758711726e-19
+    ],
+    [
+     -9.555369615554811e-20,
+     3.20161758711726e-19,
+     0.00039652941658178725
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py; rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "yaw_motor_stator",
+   "body": "base",
+   "mass_kg": 0.12,
+   "com_m": [
+    -0.0,
+    0.0,
+    -0.1242
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0018959965378654501,
+     -4.9025093659569565e-21,
+     -4.800015333730718e-20
+    ],
+    [
+     -4.9025093659569565e-21,
+     0.0018959965378654497,
+     1.2998443332696206e-20
+    ],
+    [
+     -4.800015333730718e-20,
+     1.2998443332696206e-20,
+     8.008335000000043e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 3681.4,
+   "source": "datasheet:mot-08 Omni+ DS-2001 REV060223, OPN-060-013 (no Halls), weights 'estimated'"
+  },
+  {
+   "name": "yaw_bearing_0",
+   "body": "base",
+   "mass_kg": 0.025,
+   "com_m": [
+    -0.0,
+    -0.0,
+    -0.10855
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0002988248777309033,
+     3.3521514600195643e-22,
+     -9.190512857336557e-21
+    ],
+    [
+     3.3521514600195643e-22,
+     0.00029882487773090336,
+     -6.005268905219045e-21
+    ],
+    [
+     -9.190512857336557e-21,
+     -6.005268905219045e-21,
+     8.32500000000005e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5263.1,
+   "source": "placeholder (61806 30x42x7; retailer pages 0.022-0.027 kg, unverified)"
+  },
+  {
+   "name": "yaw_bearing_1",
+   "body": "base",
+   "mass_kg": 0.025,
+   "com_m": [
+    0.0,
+    -0.0,
+    -0.13985
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.000493192898463034,
+     4.345263162336488e-22,
+     6.127008571557699e-22
+    ],
+    [
+     4.345263162336488e-22,
+     0.0004931928984630342,
+     -2.5342411635831292e-21
+    ],
+    [
+     6.127008571557699e-22,
+     -2.5342411635831292e-21,
+     8.325000000000052e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 5263.1,
+   "source": "placeholder (61806 30x42x7; retailer pages 0.022-0.027 kg, unverified)"
+  },
+  {
+   "name": "yaw_encoder_head",
+   "body": "base",
+   "mass_kg": 0.0045,
+   "com_m": [
+    -0.01516,
+    0.0,
+    -0.15035
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0001030289023082895,
+     -7.729071631343272e-23,
+     -1.0255265961470216e-05
+    ],
+    [
+     -7.729071631343272e-23,
+     0.0001030289023082895,
+     8.742259106869358e-22
+    ],
+    [
+     -1.0255265961470216e-05,
+     8.742259106869358e-22,
+     2.608312499999999e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1232.2,
+   "source": "datasheet:enc-03 MB049 shape D 4.5 g (thickness placeholder)"
+  },
+  {
+   "name": "slip_ring_em022",
+   "body": "base",
+   "mass_kg": 0.03,
+   "com_m": [
+    0.0,
+    0.0,
+    -0.14405
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0006273920763821567,
+     -4.5247552261458364e-23,
+     9.074983579614976e-21
+    ],
+    [
+     -4.5247552261458364e-23,
+     0.0006273920763821567,
+     1.1457259679438592e-21
+    ],
+    [
+     9.074983579614976e-21,
+     1.1457259679438592e-21,
+     1.8150000000000112e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1973.0,
+   "source": "placeholder mass (Senring EM022 sr-06: OD 22, L 19-40 mm, mass not published)"
+  },
+  {
+   "name": "controller_power_pcb",
+   "body": "base",
+   "mass_kg": 0.05,
+   "com_m": [
+    0.0,
+    0.0,
+    -0.15605
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0012377832355232792,
+     1.2789173893300893e-22,
+     7.24756422229977e-21
+    ],
+    [
+     1.2789173893300893e-22,
+     0.0012377832355232792,
+     -4.460039521415244e-21
+    ],
+    [
+     7.24756422229977e-21,
+     -4.460039521415244e-21,
+     3.930551904398215e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 1197.2,
+   "source": "placeholder (MCU + power + Ethernet, no board selected)"
+  },
+  {
+   "name": "yaw_driver_odrive_micro",
+   "body": "base",
+   "mass_kg": 0.0068,
+   "com_m": [
+    0.0,
+    0.036,
+    -0.14405
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.00015051733731328887,
+     -4.4586804486585716e-23,
+     1.8294518551079915e-22
+    ],
+    [
+     -4.4586804486585716e-23,
+     0.00014225703731328887,
+     3.52626611343295e-05
+    ],
+    [
+     1.8294518551079915e-22,
+     3.52626611343295e-05,
+     9.420833333333347e-06
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 948.7,
+   "source": "datasheet:drv-05 ODrive Micro 6.8 g bare board"
+  },
+  {
+   "name": "base_harness_connector",
+   "body": "base",
+   "mass_kg": 0.035,
+   "com_m": [
+    -0.036,
+    -0.0,
+    -0.14205
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0007080283678755631,
+     -2.0775973534152103e-24,
+     -0.00017897899113257832
+    ],
+    [
+     -2.0775973534152103e-24,
+     0.000752513367875563,
+     -2.4650092083248125e-23
+    ],
+    [
+     -0.00017897899113257832,
+     -2.4650092083248125e-23,
+     4.6818333333333285e-05
+    ]
+   ],
+   "material": null,
+   "density_kg_m3": 11666.7,
+   "source": "placeholder"
+  },
+  {
+   "name": "mounting_plate",
+   "body": "base",
+   "mass_kg": 0.08773,
+   "com_m": [
+    -0.0,
+    -0.0,
+    -0.1848
+   ],
+   "inertia_O_kgm2": [
+    [
+     0.0032321856355846026,
+     -4.557363607574053e-21,
+     1.6344711184501654e-20
+    ],
+    [
+     -4.557363607574053e-21,
+     0.0032321856355846034,
+     -1.439895517228407e-20
+    ],
+    [
+     1.6344711184501654e-20,
+     -1.439895517228407e-20,
+     0.0004725083150693261
+    ]
+   ],
+   "material": "al6061",
+   "density_kg_m3": 2700.0,
+   "source": "cad:cad/turret.py (vehicle side of the isolators); rho datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  {
+   "name": "fasteners_pitch_body",
+   "body": "pitch_body",
+   "mass_kg": 0.015,
+   "com_m": null,
+   "material": null,
+   "density_kg_m3": null,
+   "source": "placeholder (point mass at body CoM)"
+  },
+  {
+   "name": "fasteners_yaw_body",
+   "body": "yaw_body",
+   "mass_kg": 0.015,
+   "com_m": null,
+   "material": null,
+   "density_kg_m3": null,
+   "source": "placeholder (point mass at body CoM)"
+  },
+  {
+   "name": "fasteners_base",
+   "body": "base",
+   "mass_kg": 0.015,
+   "com_m": null,
+   "material": null,
+   "density_kg_m3": null,
+   "source": "placeholder (point mass at body CoM)"
+  }
+ ],
+ "materials": {
+  "al6061": {
+   "density_kg_m3": 2700.0,
+   "source": "datasheet:https://www.protolabs.com/media/h54d0gnp/2026-026-cnc-material-data-sheet_aluminum-6061-t651_t6.pdf"
+  },
+  "ge": {
+   "density_kg_m3": 5330.0,
+   "source": "datasheet:https://www.crystran.com/optical-materials/germanium-ge"
+  },
+  "sapphire": {
+   "density_kg_m3": 3970.0,
+   "source": "datasheet:https://www.crystran.com/optical-materials/sapphire-al2o3"
+  },
+  "w_ha": {
+   "density_kg_m3": 17000.0,
+   "source": "calc: midpoint of ASTM B777 class 1 16.85-17.25 g/cc, https://gsalloy.com/wp-content/uploads/2024/04/ASTM-B777.pdf"
+  }
+ }
+}
